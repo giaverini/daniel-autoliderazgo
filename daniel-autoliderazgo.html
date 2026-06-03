@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autoliderazgo y Maestría Interna 90D – Daniel Miccael Sais</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8CC7A;--gold-dark:#A07830;--black:#0A0A0A;--white:#FFFFFF;--cream:#FAF7F2;--gray:#F0EDE8;--muted:#6B6560;--text:#1A1A1A}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Lato',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;width:100%}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 52px;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.2)}
+.nav-logo{display:flex;align-items:center;gap:16px}
+.nav-logo-img{width:54px;height:54px;object-fit:contain;mix-blend-mode:normal}
+.nav-divider{width:1px;height:32px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.5),transparent)}
+.nav-text{display:flex;flex-direction:column;gap:3px}
+.nav-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:var(--text);letter-spacing:.5px;line-height:1}
+.nav-sub{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);line-height:1}
+
+/* ── HERO (BLANCO) ── */
+.hero{min-height:100vh;background:var(--white);display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:80px 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,4.5vw,62px);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:26px}
+.hero-title em{font-style:italic;color:var(--gold-dark)}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--muted);font-weight:300}
+.hero-frame{position:relative;width:100%;max-width:430px;margin:0 auto}
+.hero-frame::before{content:'';position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1px solid rgba(201,168,76,.3);z-index:0;pointer-events:none}
+.hero-photo{width:100%;height:580px;object-fit:cover;object-position:center top;position:relative;z-index:1;display:block}
+.hero-tag{position:absolute;bottom:-16px;right:0;background:var(--gold);padding:14px 18px;z-index:2}
+.hero-tag strong{display:block;font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:var(--black);letter-spacing:.5px}
+.hero-tag span{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,.6)}
+
+/* ── DIVIDER ── */
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0}
+
+/* ── STATS (NEGRO) ── */
+.stats{background:var(--black);padding:0 52px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.12)}
+.stat{padding:36px;background:var(--black);text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:46px;font-weight:400;color:var(--gold-light);line-height:1;margin-bottom:6px}
+.stat-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ── SECCIONES ── */
+.sec-white{background:var(--white);padding:100px 52px}
+.sec-black{background:var(--black);padding:100px 52px}
+.sec-cream{background:var(--cream);padding:100px 52px}
+.container{max-width:1200px;margin:0 auto}
+
+.eyebrow-d{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.eyebrow-d::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold)}
+.eyebrow-l{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.eyebrow-l::after{content:'';flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4)}
+.eyebrow-c{display:flex;justify-content:center;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px}
+.eyebrow-c::before,.eyebrow-c::after{content:'';flex:1;max-width:48px;height:1px}
+
+.h2d{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;line-height:1.2;color:var(--text);margin-bottom:20px}
+.h2d em{font-style:italic;color:var(--gold-dark)}
+.h2l{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;line-height:1.2;color:var(--white);margin-bottom:20px}
+.h2l em{font-style:italic;color:var(--gold-light)}
+.pd{font-size:15px;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:16px}
+.pl{font-size:15px;line-height:1.9;color:rgba(255,255,255,.58);font-weight:300;margin-bottom:16px}
+
+/* ── PROBLEMA ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.checklist{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:13px}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text);line-height:1.6}
+.chk{width:20px;height:20px;min-width:20px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.chk svg{width:10px;height:10px}
+.quote-box{background:var(--black);padding:50px 42px;position:relative}
+.quote-box::before{content:'"';position:absolute;top:16px;left:32px;font-family:'Playfair Display',serif;font-size:100px;color:rgba(201,168,76,.15);line-height:1}
+.quote-box blockquote{font-family:'Playfair Display',serif;font-size:21px;font-style:italic;font-weight:400;line-height:1.8;color:var(--white);position:relative;z-index:1;margin-bottom:24px}
+.quote-box cite{font-style:normal;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+
+/* ── CICLOS ── */
+.method-header{text-align:center;margin-bottom:56px}
+.method-header .h2l{text-align:center}
+.method-header .pl{text-align:center;max-width:600px;margin:0 auto}
+.cycles{display:flex;flex-direction:column;gap:3px}
+.cycle{background:rgba(255,255,255,.04);display:grid;grid-template-columns:240px 1fr;border-left:3px solid transparent;transition:border-color .3s}
+.cycle:hover{border-left-color:var(--gold)}
+.cycle-left{padding:34px;border-right:1px solid rgba(201,168,76,.1);position:relative}
+.cycle-num{font-family:'Playfair Display',serif;font-size:60px;font-weight:400;color:rgba(201,168,76,.1);line-height:1;position:absolute;top:10px;right:12px}
+.cycle-icon{font-size:24px;margin-bottom:10px}
+.cycle-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.cycle-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--white);line-height:1.3}
+.cycle-days{font-size:11px;color:rgba(255,255,255,.3);margin-top:5px}
+.cycle-right{padding:30px 38px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.week h5{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.week p{font-size:13px;color:rgba(255,255,255,.52);line-height:1.65;font-weight:300}
+.comp-tags{display:flex;flex-wrap:wrap;gap:7px;padding:18px 38px;background:rgba(201,168,76,.05);border-top:1px solid rgba(201,168,76,.1)}
+.comp-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(201,168,76,.25);padding:4px 12px}
+
+/* ── INCLUYE ── */
+.includes-header{text-align:center;margin-bottom:56px}
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--gray)}
+.inc-card{background:var(--white);padding:42px 32px;border-bottom:3px solid transparent;transition:all .3s}
+.inc-card:hover{border-bottom-color:var(--gold);transform:translateY(-3px)}
+.inc-icon{width:42px;height:42px;background:var(--black);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.inc-icon svg{width:20px;height:20px}
+.inc-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--text);margin-bottom:8px}
+.inc-text{font-size:13px;line-height:1.8;color:var(--muted);font-weight:300}
+
+/* ── EN VIVO ── */
+.live-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.live-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(201,168,76,.3);padding:7px 16px;margin-bottom:26px}
+.dot{width:7px;height:7px;background:#e74c3c;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.badge-text{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light)}
+.enc-big{font-family:'Playfair Display',serif;font-size:76px;font-weight:400;color:rgba(201,168,76,.15);line-height:1;margin-top:28px}
+.enc-lbl{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1px;margin-top:2px}
+.horario{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,.25);padding:9px 15px;margin-top:18px}
+.horario svg{width:13px;height:13px}
+.horario span{font-size:11px;color:var(--gold-light);letter-spacing:.5px}
+.sched{border:1px solid rgba(201,168,76,.15);overflow:hidden}
+.sched-row{display:flex;gap:16px;padding:20px 26px;border-bottom:1px solid rgba(255,255,255,.05)}
+.sched-row:last-child{border-bottom:none}
+.sched-day{width:82px;min-width:82px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding-top:2px}
+.sched-content h5{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);margin-bottom:4px;font-weight:500}
+.sched-content p{font-size:12px;color:rgba(255,255,255,.42);line-height:1.6;font-weight:300}
+
+/* ── SOBRE DANIEL ── */
+.about-inner{display:grid;grid-template-columns:390px 1fr;gap:72px;align-items:center}
+.about-photo-wrap{position:relative}
+.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border:1px solid rgba(201,168,76,.2);display:block}
+.about-logo{position:absolute;top:-18px;right:-18px;width:68px;height:68px;border-radius:50%;overflow:hidden;mix-blend-mode:normal}
+.about-logo img{width:100%;height:100%;object-fit:cover}
+.story-quote{margin:22px 0;padding:18px 0 18px 20px;border-left:2px solid var(--gold);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--muted);line-height:1.75}
+.creds{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.cred{border:1px solid rgba(201,168,76,.3);padding:6px 13px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dark)}
+
+/* ── PROCESO ── */
+.proc-header{text-align:center;margin-bottom:64px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.steps::before{content:'';position:absolute;top:36px;left:calc(16.66% + 14px);right:calc(16.66% + 14px);height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.3),var(--gold));z-index:0}
+.step{text-align:center;padding:0 26px;position:relative;z-index:1}
+.step-c{width:72px;height:72px;border:1px solid var(--gold);border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Playfair Display',serif;font-size:24px;color:var(--gold)}
+.step-t{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.48);font-weight:300}
+
+/* ── CIERRE ── */
+.close-sec{background:var(--white);padding:100px 52px;text-align:center}
+.close-inner{max-width:660px;margin:0 auto}
+.close-logo{width:90px;height:90px;object-fit:contain;margin:0 auto 28px;display:block;mix-blend-mode:normal}
+.close-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:18px}
+.close-title em{color:var(--gold-dark);font-style:italic}
+.close-p{font-size:15px;color:var(--muted);line-height:1.9;font-weight:300}
+.close-line{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:32px auto 0}
+
+/* ── FOOTER ── */
+footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,168,76,.1)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:14px;color:rgba(201,168,76,.6)}
+.footer-copy{font-size:10px;color:rgba(255,255,255,.18);letter-spacing:1px}
+
+/* ── FADE IN ── */
+.fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.fade.v{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:12px 20px}
+  .hero-inner,.two-col,.live-inner,.about-inner{grid-template-columns:1fr;gap:44px}
+  .hero-inner{padding:60px 20px}
+  .hero-visual{display:flex;justify-content:center}
+  .hero-frame{max-width:100%;width:100%}
+  .hero-photo{height:420px;width:100%}
+  .hero-tag{bottom:-14px;right:0;padding:12px 16px}
+  .hero-tag strong{font-size:15px}
+  .stats{padding:0 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:28px 16px}
+  .stat-n{font-size:38px}
+  .cycle{grid-template-columns:1fr}
+  .cycle-left{border-right:none;border-bottom:1px solid rgba(201,168,76,.1)}
+  .cycle-num{display:none}
+  .cycle-right{grid-template-columns:1fr;padding:22px 20px}
+  .comp-tags{padding:14px 20px}
+  .inc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:36px}
+  .steps::before{display:none}
+  .sched{overflow:hidden}
+  .sched-row{flex-direction:column;gap:6px;padding:16px 20px}
+  .sched-day{width:auto}
+  .sec-white,.sec-black,.sec-cream,.close-sec{padding:64px 20px}
+  .container{padding:0}
+  .two-col,.live-inner,.about-inner{padding:0}
+  .quote-box{padding:36px 28px}
+  .quote-box blockquote{font-size:18px}
+  .cycle-left{padding:24px 20px}
+  .method-header{margin-bottom:36px}
+  .enc-big{font-size:56px}
+  .about-photo-wrap{max-width:100%}
+  footer{padding:24px 20px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img class="nav-logo-img" src="logo_png.png" alt="Logo Daniel Miccael Sais">
+    <div class="nav-divider"></div>
+    <div class="nav-text">
+      <span class="nav-name">Daniel Miccael Sais</span>
+      <span class="nav-sub">Autoliderazgo &amp; Maestría Interna</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO (BLANCO) ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Programa de Transformación · 90 Días</p>
+      <h1 class="hero-title">Rompe el Hechizo,<br>Maneja tu Mente y<br><em>Transforma tu Realidad</em></h1>
+      <p class="hero-sub">Para empresarios, altos cargos y profesionales que alcanzaron el éxito externo… pero sienten que algo esencial sigue faltando. Un entrenamiento de 90 días para superar la crisis identitaria, restablecer la coherencia de tu tríada mente–emoción–cuerpo y asumir el control total de tu vida.</p>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="hero-frame">
+        <img class="hero-photo" id="danielHero" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
+        <div class="hero-tag">
+          <strong>Daniel Miccael Sais</strong>
+          <span>Coach · Terapeuta · Autoliderazgo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="gold-line"></div>
+
+<!-- ═══ STATS (NEGRO) ═══ -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat fade"><div class="stat-n">90</div><div class="stat-l">Días de entrenamiento</div></div>
+    <div class="stat fade"><div class="stat-n">26</div><div class="stat-l">Encuentros en vivo</div></div>
+    <div class="stat fade"><div class="stat-n">4</div><div class="stat-l">Ciclos de transformación</div></div>
+    <div class="stat fade"><div class="stat-n">1:1</div><div class="stat-l">Acompañamiento personal</div></div>
+  </div>
+</div>
+
+<!-- ═══ PROBLEMA (BLANCO) ═══ -->
+<section class="sec-white">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade">
+        <p class="eyebrow-d">¿Te resuena esto?</p>
+        <h2 class="h2d">Tienes el éxito… pero sientes un <em>vacío que no desaparece</em></h2>
+        <p class="pd">Construiste todo lo que se supone que debía hacerte feliz: la empresa, el reconocimiento, los ingresos. Y aun así, al final del día, cuando el ruido se detiene, aparece esa sensación de que algo esencial falta.</p>
+        <p class="pd">Intentas taparla con juntas, con alcohol o distrayéndote en redes sociales. Pero apenas vuelves a estar contigo mismo, la sensación de vacío sigue estando.</p>
+        <p class="pd">Esto no es una crisis. Es una <strong>invitación a tu siguiente nivel de identidad.</strong></p>
+        <ul class="checklist">
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>Te levantas exhausto aunque duermas 8 horas</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>No puedes delegar porque temes perder el control</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>Tu éxito profesional está costándole a tus relaciones</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>Usas el trabajo como anestesia para no enfrentar el silencio interno</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>Sientes que nadie más podría entender lo que vives</li>
+          <li><span class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="#A07830" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>¿Quién eres tú fuera del éxito de tu empresa?</li>
+        </ul>
+      </div>
+      <div class="fade">
+        <div class="quote-box">
+          <blockquote>"Sé lo que es sentir la culpa del éxito, alcanzar lo que todos quieren y sentirse vacío. Solo, a pesar de estar acompañado. Ahí fue cuando tomé la decisión de cambiar mi vida por completo — y de esa transformación nació Autoliderazgo."</blockquote>
+          <cite>— Daniel Miccael Sais</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MÉTODO (NEGRO) ═══ -->
+<section class="sec-black">
+  <div class="container">
+    <div class="method-header fade">
+      <p class="eyebrow-c" style="color:var(--gold)"><span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span>El Método<span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span></p>
+      <h2 class="h2l" style="text-align:center">Autoliderazgo y <em>Maestría Interna 90D</em></h2>
+      <p class="pl" style="text-align:center;max-width:600px;margin:0 auto">Un entrenamiento sistémico que trabaja tu tríada mente–emoción–acción a través de 4 ciclos progresivos. Porque es imposible dirigir un equipo o empresa sin ser capaz de dirigirte a ti mismo.</p>
+    </div>
+    <div class="cycles fade">
+      <div class="cycle">
+        <div class="cycle-left">
+          <div class="cycle-num">1</div>
+          <div class="cycle-icon">🔥</div>
+          <div class="cycle-label">Ciclo 1 · Días 1–28</div>
+          <div class="cycle-name">Romper el Hechizo del Miedo</div>
+          <div class="cycle-days">4 semanas · 8 encuentros en vivo</div>
+        </div>
+        <div class="cycle-right">
+          <div class="week"><h5>Semana 1</h5><p>Comprender el Miedo — Tu guardián natural, no tu enemigo</p></div>
+          <div class="week"><h5>Semana 2</h5><p>Identificar el Mensaje — Desarmar las mentiras internas y la voz del niño interior</p></div>
+          <div class="week"><h5>Semana 3</h5><p>Hacer las Paces — Transformar la resistencia en una alianza de poder útil</p></div>
+          <div class="week"><h5>Semana 4</h5><p>La Acción Suprema — Siente el miedo, aumenta tu competencia y actúa igual</p></div>
+        </div>
+        <div class="comp-tags"><span class="comp-tag">Autoconocimiento</span><span class="comp-tag">Autoconfianza</span><span class="comp-tag">Análisis DAFO Personal</span><span class="comp-tag">Test del Miedo Raíz</span></div>
+      </div>
+      <div class="cycle">
+        <div class="cycle-left">
+          <div class="cycle-num">2</div>
+          <div class="cycle-icon">🧠</div>
+          <div class="cycle-label">Ciclo 2 · Días 29–56</div>
+          <div class="cycle-name">Manejar la Mente</div>
+          <div class="cycle-days">4 semanas · 8 encuentros en vivo</div>
+        </div>
+        <div class="cycle-right">
+          <div class="week"><h5>Semana 5</h5><p>La Mente Creadora — Todo comienza en la mente: lo que sostengo, lo vivo</p></div>
+          <div class="week"><h5>Semana 6</h5><p>Las Leyes Mentales Inmutables — Correspondencia, Convicción y Gestación</p></div>
+          <div class="week"><h5>Semana 7</h5><p>El Pensamiento Controlado — Eliminar la reacción automática y elegir con claridad</p></div>
+          <div class="week"><h5>Semana 8</h5><p>Autocontrol y Calma Mental — La meditación profunda como llave al subconsciente</p></div>
+        </div>
+        <div class="comp-tags"><span class="comp-tag">Autogestión</span><span class="comp-tag">Autonomía Mental</span><span class="comp-tag">El Vigilante de la Puerta</span><span class="comp-tag">Sustitución Activa</span></div>
+      </div>
+      <div class="cycle">
+        <div class="cycle-left">
+          <div class="cycle-num">3</div>
+          <div class="cycle-icon">❤️</div>
+          <div class="cycle-label">Ciclo 3 · Días 57–84</div>
+          <div class="cycle-name">Sanar el Corazón</div>
+          <div class="cycle-days">4 semanas · 8 encuentros en vivo</div>
+        </div>
+        <div class="cycle-right">
+          <div class="week"><h5>Semana 9</h5><p>La Emoción como Combustible — Alineación entre el cerebro y el corazón</p></div>
+          <div class="week"><h5>Semana 10</h5><p>El Mapa del Sentir — Cerrar heridas del alma sin revivir el dolor</p></div>
+          <div class="week"><h5>Semana 11</h5><p>Liberación de Patrones — Cortar los hilos de la herencia familiar de escasez y miedo</p></div>
+          <div class="week"><h5>Semana 12</h5><p>Del Dolor al Propósito — Configuración de la Certeza Emocional permanente</p></div>
+        </div>
+        <div class="comp-tags"><span class="comp-tag">Autoestima</span><span class="comp-tag">Automotivación</span><span class="comp-tag">Alquimia Vibratoria</span><span class="comp-tag">Lealtades Invisibles</span></div>
+      </div>
+      <div class="cycle">
+        <div class="cycle-left">
+          <div class="cycle-num">4</div>
+          <div class="cycle-icon">👑</div>
+          <div class="cycle-label">Ciclo 4 · Días 85–90</div>
+          <div class="cycle-name">La Consagración Final</div>
+          <div class="cycle-days">5 días · 2 encuentros en vivo</div>
+        </div>
+        <div class="cycle-right">
+          <div class="week"><h5>Día 89</h5><p>La Amalgama de la Tríada — Integración de mente, emoción y acción en un solo cuerpo</p></div>
+          <div class="week"><h5>Día 90</h5><p>La Consagración Suprema — Gala final de graduación y Ritual de Declaración de Identidad</p></div>
+          <div class="week" style="grid-column:1/-1"><h5>El Sellado Definitivo</h5><p>Evaluación de metas, balance de la brújula de autoliderazgo e instalación permanente en el Modo Creador Consciente</p></div>
+        </div>
+        <div class="comp-tags"><span class="comp-tag">Autonomía Absoluta</span><span class="comp-tag">Autodirección</span><span class="comp-tag">Creador Consciente</span><span class="comp-tag">Contrato de Maestría</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUÉ INCLUYE (BLANCO) ═══ -->
+<section class="sec-white">
+  <div class="container">
+    <div class="includes-header fade">
+      <p style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;text-align:center">Qué incluye</p>
+      <h2 class="h2d" style="text-align:center">Todo lo que necesitas para <em>los 90 días</em></h2>
+    </div>
+    <div class="inc-grid">
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><rect x="2" y="3" width="18" height="16" rx="1"/><path d="M7 8h8M7 12h5"/></svg></div>
+        <h3 class="inc-title">Contenido Grabado Paso a Paso</h3>
+        <p class="inc-text">Módulos y lecciones estructuradas por ciclo que se adaptan a tu ritmo y agenda. Acceso inmediato desde el día 1.</p>
+      </div>
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="11" cy="11" r="9"/><path d="M11 7v4l3 3"/></svg></div>
+        <h3 class="inc-title">26 Encuentros en Vivo</h3>
+        <p class="inc-text">Miércoles (Clase Máster) y Sábados (Mentoría de Calibración) a las 20:00 hrs Chile durante los 90 días.</p>
+      </div>
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M4 4h14v14H4z"/><path d="M8 10l2 2 4-4"/></svg></div>
+        <h3 class="inc-title">Diario de Progreso</h3>
+        <p class="inc-text">Bitácora en PDF de uso diario para registrar avances, aplicar la Sustitución Activa y asentar las evidencias de coherencia.</p>
+      </div>
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3 class="inc-title">Ritual Matutino + Vive Meditación</h3>
+        <p class="inc-text">Conexión diaria a las 06:30 hrs con la práctica de Vive Meditación y una Frase Poderosa para sostener el enfoque del día.</p>
+      </div>
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3 class="inc-title">Red de Networking Exclusiva</h3>
+        <p class="inc-text">Acceso a una tribu privada de líderes en tu misma sintonía. Ecosistema de calibración, rendición de cuentas y apoyo mutuo.</p>
+      </div>
+      <div class="inc-card fade">
+        <div class="inc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3 class="inc-title">Desafío Diario vía WhatsApp</h3>
+        <p class="inc-text">Mensajes diarios (máx. 2 min) que impulsan al participante a tomar decisiones conscientes y mantener el centramiento biológico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EN VIVO (NEGRO) ═══ -->
+<section class="sec-black">
+  <div class="container">
+    <div class="live-inner">
+      <div class="fade">
+        <div class="live-badge"><div class="dot"></div><span class="badge-text">En Vivo · 26 Sesiones</span></div>
+        <p class="eyebrow-l">Calendario Premium</p>
+        <h2 class="h2l">Miércoles y Sábados<br><em>junto a Daniel</em></h2>
+        <p class="pl">El programa incluye 26 encuentros en vivo diseñados bajo una lógica de alta dirección. No son clases teóricas: son espacios de ingeniería mental, mentoría directa y rendición de cuentas ante la Tribu.</p>
+        <div class="enc-big">26</div>
+        <div class="enc-lbl">encuentros en vivo durante los 90 días</div>
+        <div class="horario">
+          <svg viewBox="0 0 14 14" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2"/></svg>
+          <span>Miércoles y Sábados · 20:00 hrs Chile</span>
+        </div>
+      </div>
+      <div class="fade">
+        <div class="sched">
+          <div class="sched-row">
+            <div class="sched-day">Miércoles</div>
+            <div class="sched-content"><h5>Clase Máster de Ingeniería</h5><p>Entrega conceptual profunda, pautas técnicas y apertura del enfoque semanal. Cada clase lleva al participante un paso más profundo en su proceso.</p></div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-day">Sábado</div>
+            <div class="sched-content"><h5>Ecosistema de Calibración</h5><p>Mentoría directa, revisión del Diario de Progreso, rendición de cuentas y blindaje de la Tribu. Aquí se calibra el avance real del autoliderazgo.</p></div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-day">Día 90</div>
+            <div class="sched-content"><h5>La Consagración Suprema</h5><p>Gran gala final de graduación. Ritual colectivo de Declaración de Identidad y firma del Contrato de Maestría Interna.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOBRE DANIEL (BLANCO) ═══ -->
+<section class="sec-white">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-photo-wrap fade">
+        <img class="about-photo" id="danielAbout" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
+        <div style="position:absolute;top:-18px;right:-18px;width:68px;height:68px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,168,76,0.3)">
+          <img src="logo_png.png" alt="Logo" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:normal">
+        </div>
+      </div>
+      <div class="fade">
+        <p class="eyebrow-d">Sobre Daniel</p>
+        <h2 class="h2d">Tu guía en esta <em>transformación</em></h2>
+        <p class="pd">Hace unos años, Daniel lideraba su equipo y tenía todo lo que debería hacerlo feliz. Pero no lo era. Alcanzó lo que todos quieren y se sintió vacío. Solo, a pesar de estar acompañado.</p>
+        <div class="story-quote">"La misma fuerza que usas para liderar tu equipo o empresa, ocúpala para cumplirte a ti mismo."</div>
+        <p class="pd">De esa transformación personal nació Autoliderazgo: la convicción de que para que tu vida esté completa y en plenitud, se necesita el mismo liderazgo que ocupas en tu empresa, aplicado con la misma fuerza a tu propia vida.</p>
+        <p class="pd">Hoy, Daniel acompaña a empresarios y líderes a superar la crisis identitaria con un método que une neurociencia aplicada, psicología analítica, PNL y meditación profunda.</p>
+        <div class="creds">
+          <span class="cred">Coach Profesional</span>
+          <span class="cred">Terapeuta Holístico</span>
+          <span class="cred">Diplomado en Mediación</span>
+          <span class="cred">+30 Maestrías Meditación</span>
+          <span class="cred">Creador Sudja Meditación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESO (NEGRO) ═══ -->
+<section class="sec-black">
+  <div class="container">
+    <div class="proc-header fade">
+      <p style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center">Cómo funciona</p>
+      <h2 class="h2l" style="text-align:center">El camino en <em>3 pasos</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step fade">
+        <div class="step-c">1</div>
+        <h3 class="step-t">Recibe la información</h3>
+        <p class="step-p">Conoce en detalle el programa, su estructura y metodología. Esta página está diseñada para que llegues a tu reunión con total claridad sobre de qué se trata el proceso.</p>
+      </div>
+      <div class="step fade">
+        <div class="step-c">2</div>
+        <h3 class="step-t">Reunión de diagnóstico</h3>
+        <p class="step-p">Una conversación de 15 a 30 minutos con Daniel para conocer tu situación actual. Si el programa es para ti, lo sabrás. Si no, Daniel te lo dirá con total honestidad.</p>
+      </div>
+      <div class="step fade">
+        <div class="step-c">3</div>
+        <h3 class="step-t">Transformación de 90 días</h3>
+        <p class="step-p">Iniciamos el proceso: 26 encuentros en vivo, diario de progreso, desafíos diarios y acompañamiento continuo para convertirte en un Creador Consciente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CIERRE (BLANCO) ═══ -->
+<section class="close-sec">
+  <div class="close-inner fade">
+    <img src="logo_png.png" alt="Logo Daniel Miccael Sais" style="width:90px;height:90px;object-fit:contain;margin:0 auto 28px;display:block;mix-blend-mode:normal">
+    <h2 class="close-title">La crisis que vives hoy es una<br><em>invitación a tu siguiente nivel</em></h2>
+    <p class="close-p">No necesitas seguir sufriendo para merecer la transformación. El trabajo interno correcto puede cambiar tu vida en 90 días. La pregunta no es si puedes. La pregunta es: ¿estás listo?</p>
+    <div class="close-line"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Daniel Miccael Sais · Autoliderazgo y Maestría Interna</span>
+    <span class="footer-copy">© 2025 · Todos los derechos reservados</span>
+  </div>
+</footer>
+
+<script>
+// Scroll animations
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
+}, {threshold: 0.08});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
