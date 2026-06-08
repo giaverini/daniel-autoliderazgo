@@ -130,8 +130,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 52px;display:fl
 .about-inner{display:grid;grid-template-columns:390px 1fr;gap:72px;align-items:center}
 .about-photo-wrap{position:relative}
 .about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border:1px solid rgba(201,168,76,.2);display:block}
-.about-logo{position:absolute;top:-18px;right:-18px;width:68px;height:68px;border-radius:50%;overflow:hidden;mix-blend-mode:normal}
-.about-logo img{width:100%;height:100%;object-fit:cover}
 .story-quote{margin:22px 0;padding:18px 0 18px 20px;border-left:2px solid var(--gold);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--muted);line-height:1.75}
 .creds{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
 .cred{border:1px solid rgba(201,168,76,.3);padding:6px 13px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dark)}
@@ -145,10 +143,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 52px;display:fl
 .step-t{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--white);margin-bottom:10px}
 .step-p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.48);font-weight:300}
 
+/* ── TESTIMONIOS ── */
+.test-header{margin-bottom:40px}
+.testimonios-carousel{display:flex;flex-direction:row;flex-wrap:nowrap;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px 28px;-ms-overflow-style:none;scrollbar-width:none}
+.testimonios-carousel::-webkit-scrollbar{display:none}
+.test-card{flex:0 0 300px;min-width:300px;scroll-snap-align:start;background:#111;border:1px solid rgba(201,168,76,.2);border-radius:14px;overflow:hidden;transition:border-color .3s}
+.test-card:hover{border-color:rgba(201,168,76,.5)}
+.test-video-wrap{position:relative;width:100%;padding-top:56.25%;background:#000}
+.test-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.test-body{padding:16px 18px 20px}
+.test-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:8px}
+.test-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:6px}
+.test-quote{font-size:12px;color:rgba(255,255,255,.5);font-style:italic;line-height:1.6}
+.carousel-nav{display:flex;gap:10px;margin-top:4px}
+.carousel-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.4);background:transparent;color:var(--gold);font-size:18px;cursor:pointer;transition:all .2s}
+.carousel-btn:hover{background:var(--gold);color:#000}
+
 /* ── CIERRE ── */
 .close-sec{background:var(--white);padding:100px 52px;text-align:center}
 .close-inner{max-width:660px;margin:0 auto}
-.close-logo{width:90px;height:90px;object-fit:contain;margin:0 auto 28px;display:block;mix-blend-mode:normal}
 .close-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:18px}
 .close-title em{color:var(--gold-dark);font-style:italic}
 .close-p{font-size:15px;color:var(--muted);line-height:1.9;font-weight:300}
@@ -199,25 +212,9 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   .enc-big{font-size:56px}
   .about-photo-wrap{max-width:100%}
   footer{padding:24px 20px}
-  .footer-inner{flex-direction:column;text-align:center} 
-.test-card{flex:0 0 230px}
-/* ── TESTIMONIOS ── */
-.test-header{margin-bottom:40px}
-.test-header .label{color:var(--gold-light)!important}
-.test-header .sec-title{color:#fff!important}
-.testimonios-carousel{display:flex;flex-direction:row;flex-wrap:nowrap;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px 28px;-ms-overflow-style:none;scrollbar-width:none}
-.testimonios-carousel::-webkit-scrollbar{display:none}
-.test-card{flex:0 0 270px;min-width:270px;scroll-snap-align:start;background:#111;border:1px solid rgba(201,168,76,.2);border-radius:14px;overflow:hidden;transition:border-color .3s}  
-.test-card:hover{border-color:rgba(201,168,76,.5)}
-.test-video-wrap{position:relative;width:100%;padding-top:56.25%;background:#000}
-.test-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.test-body{padding:16px 18px 20px}
-.test-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:8px}
-.test-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:6px}
-.test-quote{font-size:12px;color:rgba(255,255,255,.5);font-style:italic;line-height:1.6}
-.carousel-nav{display:flex;gap:10px;margin-top:16px}
-.carousel-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.4);background:transparent;color:var(--gold);font-size:18px;cursor:pointer;transition:all .2s}
-.carousel-btn:hover{background:var(--gold);color:#000}
+  .footer-inner{flex-direction:column;text-align:center}
+  .test-card{flex:0 0 240px;min-width:240px}
+}
 </style>
 </head>
 <body>
@@ -247,7 +244,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
     </div>
     <div style="display:flex;justify-content:center">
       <div class="hero-frame">
-        <img class="hero-photo" id="danielHero" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
+        <img class="hero-photo" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
         <div class="hero-tag">
           <strong>Daniel Miccael Sais</strong>
           <span>Coach · Terapeuta · Autoliderazgo</span>
@@ -458,7 +455,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   <div class="container">
     <div class="about-inner">
       <div class="about-photo-wrap fade">
-        <img class="about-photo" id="danielAbout" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
+        <img class="about-photo" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
         <div style="position:absolute;top:-18px;right:-18px;width:68px;height:68px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,168,76,0.3)">
           <img src="logo_png.png" alt="Logo" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:normal">
         </div>
@@ -508,12 +505,13 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
     </div>
   </div>
 </section>
+
 <!-- ═══ TESTIMONIOS (NEGRO) ═══ -->
 <section class="sec-black">
-  <div class="sec-inner fade">
+  <div class="container fade">
     <div class="test-header">
-      <p class="label" style="color:var(--gold-light)">Voces del Programa</p>
-      <h2 class="sec-title" style="color:#fff">Resultados reales,<br><em>transformaciones genuinas</em></h2>
+      <p class="eyebrow-l">Voces del Programa</p>
+      <h2 class="h2l">Resultados reales,<br><em>transformaciones genuinas</em></h2>
     </div>
     <div class="testimonios-carousel" id="testCarousel">
 
@@ -574,11 +572,12 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 
     </div>
     <div class="carousel-nav">
-      <button class="carousel-btn" onclick="document.getElementById('testCarousel').scrollBy({left:-300,behavior:'smooth'})">←</button>
-      <button class="carousel-btn" onclick="document.getElementById('testCarousel').scrollBy({left:300,behavior:'smooth'})">→</button>
+      <button class="carousel-btn" onclick="document.getElementById('testCarousel').scrollBy({left:-320,behavior:'smooth'})">←</button>
+      <button class="carousel-btn" onclick="document.getElementById('testCarousel').scrollBy({left:320,behavior:'smooth'})">→</button>
     </div>
   </div>
 </section>
+
 <!-- ═══ CIERRE (BLANCO) ═══ -->
 <section class="close-sec">
   <div class="close-inner fade">
@@ -598,7 +597,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 </footer>
 
 <script>
-// Scroll animations
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
 }, {threshold: 0.08});
