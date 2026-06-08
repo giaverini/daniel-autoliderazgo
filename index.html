@@ -199,8 +199,21 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   .enc-big{font-size:56px}
   .about-photo-wrap{max-width:100%}
   footer{padding:24px 20px}
-  .footer-inner{flex-direction:column;text-align:center}
-}
+  .footer-inner{flex-direction:column;text-align:center} 
+.testimonios-grid{grid-template-columns:1fr!important}
+  .test-card:nth-child(4),.test-card:nth-child(5){grid-column:auto!important}}
+/* ── TESTIMONIOS ── */
+.testimonios-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-top:52px}
+.test-card{grid-column:span 2;background:#111;border:1px solid rgba(201,168,76,.2);border-radius:16px;overflow:hidden;transition:transform .3s,border-color .3s}
+.test-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.5)}
+.test-card:nth-child(4){grid-column:2/4}
+.test-card:nth-child(5){grid-column:4/6}
+.test-video-wrap{position:relative;width:100%;padding-top:56.25%;background:#000}
+.test-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.test-body{padding:20px 22px 24px}
+.test-stars{color:var(--gold);font-size:15px;letter-spacing:3px;margin-bottom:10px}
+.test-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:#fff;margin-bottom:8px}
+.test-quote{font-size:13px;color:rgba(255,255,255,.5);font-style:italic;line-height:1.7}
 </style>
 </head>
 <body>
@@ -491,7 +504,71 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
     </div>
   </div>
 </section>
+<!-- ═══ TESTIMONIOS (NEGRO) ═══ -->
+<section class="sec-black">
+  <div class="sec-inner fade">
+    <p class="label">Voces del Programa</p>
+    <h2 class="sec-title">Resultados reales,<br><em>transformaciones genuinas</em></h2>
+    <div class="testimonios-grid">
 
+      <div class="test-card">
+        <div class="test-video-wrap">
+          <iframe src="https://drive.google.com/file/d/12ZtOclKgnn1vsiIAwTkWMpLg_vqdC-30/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="test-body">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-name">Jorge</p>
+          <p class="test-quote">"Transformé el miedo en mi mayor aliado"</p>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-video-wrap">
+          <iframe src="https://drive.google.com/file/d/1wLzjszBcBWyUlCXk8lsCfA-9SPKfN6Yr/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="test-body">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-name">Mónica</p>
+          <p class="test-quote">"Aprendí a perseguir mis metas sin que el fracaso me detenga"</p>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-video-wrap">
+          <iframe src="https://drive.google.com/file/d/1rRBdh-Y0quzrNIv9ObNiamjTxyBQywjB/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="test-body">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-name">Guadalupe</p>
+          <p class="test-quote">"La meditación me devolvió la paz que no sabía que había perdido"</p>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-video-wrap">
+          <iframe src="https://drive.google.com/file/d/10slSaSk-BiilR0AZqAZmQ1DQ3uXxNKlI/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="test-body">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-name">Marcela</p>
+          <p class="test-quote">"Hoy comprendo mis emociones y las habito desde otro lugar"</p>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="test-video-wrap">
+          <iframe src="https://drive.google.com/file/d/1cu9D2y5wiAKsmemn2XP0Tn0TrZVI7MH3/preview" allow="autoplay" allowfullscreen></iframe>
+        </div>
+        <div class="test-body">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-name">Participante del programa</p>
+          <p class="test-quote">"Descubrí mis miedos más profundos y recuperé el control de mi vida"</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- ═══ CIERRE (BLANCO) ═══ -->
 <section class="close-sec">
   <div class="close-inner fade">
