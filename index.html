@@ -12,7 +12,10 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'Lato',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;width:100%}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 52px;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.2)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 52px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.2)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold-dark)}
 .nav-logo{display:flex;align-items:center;gap:16px}
 .nav-logo-img{width:54px;height:54px;object-fit:contain;mix-blend-mode:normal}
 .nav-divider{width:1px;height:32px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.5),transparent)}
@@ -213,6 +216,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   .about-photo-wrap{max-width:100%}
   footer{padding:24px 20px}
   .footer-inner{flex-direction:column;text-align:center}
+  .nav-links{display:none}
   .test-card{flex:0 0 240px;min-width:240px}
 }
 </style>
@@ -229,6 +233,12 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
       <span class="nav-sub">Coach, Terapeuta y Autoliderazgo</span>
     </div>
   </div>
+  <nav class="nav-links">
+    <a href="#programa">El Programa</a>
+    <a href="#incluye">Qué Incluye</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#daniel">Sobre Daniel</a>
+  </nav>
 </nav>
 
 <!-- ═══ HERO (BLANCO) ═══ -->
@@ -297,7 +307,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 </section>
 
 <!-- ═══ MÉTODO (NEGRO) ═══ -->
-<section class="sec-black">
+<section class="sec-black" id="programa">
   <div class="container">
     <div class="method-header fade">
       <p class="eyebrow-c" style="color:var(--gold)"><span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span>El Método<span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span></p>
@@ -373,7 +383,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 </section>
 
 <!-- ═══ QUÉ INCLUYE (BLANCO) ═══ -->
-<section class="sec-white">
+<section class="sec-white" id="incluye">
   <div class="container">
     <div class="includes-header fade">
       <p style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;text-align:center">Qué incluye</p>
@@ -451,7 +461,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 </section>
 
 <!-- ═══ SOBRE DANIEL (BLANCO) ═══ -->
-<section class="sec-white">
+<section class="sec-white" id="daniel">
   <div class="container">
     <div class="about-inner">
       <div class="about-photo-wrap fade">
@@ -507,7 +517,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 </section>
 
 <!-- ═══ TESTIMONIOS (NEGRO) ═══ -->
-<section class="sec-black">
+<section class="sec-black" id="testimonios">
   <div class="container fade">
     <div class="test-header">
       <p class="eyebrow-l">Voces del Programa</p>
