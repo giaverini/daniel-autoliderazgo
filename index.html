@@ -11,7 +11,7 @@
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'Lato',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;width:100%}
 
-/* ── NAV BRAND (arriba izquierda) ── */
+/* ── NAV BRAND (arriba, fijo) ── */
 .nav-brand{position:fixed;top:0;left:0;right:0;z-index:101;padding:10px 28px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15)}
 .nav-logo-img{width:38px;height:38px;object-fit:contain}
 .nav-divider{width:1px;height:26px;background:rgba(201,168,76,0.35)}
@@ -24,25 +24,18 @@ nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:102;padd
 nav.scrolled{background:rgba(255,255,255,0.98);box-shadow:0 6px 40px rgba(0,0,0,0.15)}
 nav a{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 nav a:hover{color:var(--gold-dark)}
-.nav-links{display:none}/* legacy, no usado */
 
 /* ── HERO (BLANCO) ── */
-.hero{min-height:100vh;background:var(--white);display:flex;align-items:center;padding-top:60px;position:relative;overflow:hidden}
+.hero{background:var(--white);display:flex;align-items:center;justify-content:center;padding:120px 52px 60px;position:relative;overflow:hidden;text-align:center}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;padding:80px 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-inner{max-width:760px;margin:0 auto}
 .hero-eyebrow{margin-bottom:22px}
-.hero-eyebrow-title{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.hero-eyebrow-title::after{content:'';width:40px;height:1px;background:var(--gold)}
+.hero-eyebrow-title{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
+.hero-eyebrow-title::after,.hero-eyebrow-title::before{content:'';width:40px;height:1px;background:var(--gold)}
 .hero-eyebrow-sub{font-size:10px;font-weight:400;letter-spacing:2px;color:var(--muted);text-transform:none}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,4.5vw,62px);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:26px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,72px);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:26px}
 .hero-title em{font-style:italic;color:var(--gold-dark)}
-.hero-sub{font-size:15px;line-height:1.9;color:var(--muted);font-weight:300}
-.hero-frame{position:relative;width:100%;max-width:430px;margin:0 auto}
-.hero-frame::before{content:'';position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1px solid rgba(201,168,76,.3);z-index:0;pointer-events:none}
-.hero-photo{width:100%;height:580px;object-fit:cover;object-position:center top;position:relative;z-index:1;display:block}
-.hero-tag{position:absolute;bottom:-16px;right:0;background:var(--gold);padding:14px 18px;z-index:2}
-.hero-tag strong{display:block;font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:var(--black);letter-spacing:.5px}
-.hero-tag span{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,.6)}
+.hero-sub{font-size:16px;line-height:1.9;color:var(--muted);font-weight:300;max-width:620px;margin:0 auto}
 
 /* ── DIVIDER ── */
 .gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0}
@@ -73,6 +66,17 @@ nav a:hover{color:var(--gold-dark)}
 .h2l em{font-style:italic;color:var(--gold-light)}
 .pd{font-size:15px;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:16px}
 .pl{font-size:15px;line-height:1.9;color:rgba(255,255,255,.58);font-weight:300;margin-bottom:16px}
+
+/* ── BOTÓN AGENDA ── */
+.btn-agenda{display:inline-block;background:var(--gold);color:var(--black);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:17px 44px;text-decoration:none;transition:all .3s;border:2px solid var(--gold)}
+.btn-agenda:hover{background:transparent;color:var(--gold)}
+.btn-agenda-l{display:inline-block;background:transparent;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:17px 44px;text-decoration:none;transition:all .3s;border:2px solid var(--gold)}
+.btn-agenda-l:hover{background:var(--gold);color:var(--black)}
+
+/* ── VSL ── */
+.vsl-wrap{max-width:820px;margin:0 auto}
+.vsl-frame{position:relative;padding-top:56.25%;background:#000;border:1px solid rgba(201,168,76,.25)}
+.vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 
 /* ── PROBLEMA ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -185,7 +189,9 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  nav{padding:12px 20px}
+  .nav-brand{padding:8px 16px}
+  .nav-name{font-size:13px}
+  nav{display:none}
   .hero-inner,.two-col,.live-inner,.about-inner{grid-template-columns:1fr;gap:44px}
   .hero-inner{padding:60px 20px}
   .hero-visual{display:flex;justify-content:center}
@@ -194,7 +200,8 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   .hero-tag{bottom:-14px;right:0;padding:12px 16px}
   .hero-tag strong{font-size:15px}
   .stats{padding:0 20px}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}.stats-grid .stat:last-child{grid-column:1/-1}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid .stat:last-child{grid-column:1/-1}
   .stat{padding:28px 16px}
   .stat-n{font-size:38px}
   .cycle{grid-template-columns:1fr}
@@ -219,10 +226,8 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   .about-photo-wrap{max-width:100%}
   footer{padding:24px 20px}
   .footer-inner{flex-direction:column;text-align:center}
-  .nav-brand{padding:8px 16px}
-  .nav-name{font-size:13px}
-  nav{display:none}
   .test-card{flex:0 0 240px;min-width:240px}
+  .btn-agenda,.btn-agenda-l{padding:14px 28px;font-size:10px}
 }
 </style>
 </head>
@@ -246,25 +251,26 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
   <a href="#daniel">Sobre Daniel</a>
 </nav>
 
-<!-- ═══ HERO (BLANCO) ═══ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">
-        <p class="hero-eyebrow-title">Autoliderazgo y Maestría Interior</p>
-        <p class="hero-eyebrow-sub">Programa de Transformación · 90 Días</p>
-      </div>
-      <h1 class="hero-title">Rompe el Hechizo,<br>Maneja tu Mente y<br><em>Transforma tu Realidad</em></h1>
-      <p class="hero-sub">Para empresarios, altos cargos y profesionales que alcanzaron la realización y el Éxito exterior. Pero sienten que algo esencial sigue faltando. Un entrenamiento de 90 días para superar la crisis identitaria, restablecer la coherencia de tu tríada mente–emoción–cuerpo y asumir el control total de tu vida.</p>
+<!-- ═══ HERO + VSL (NEGRO) ═══ -->
+<section style="background:var(--black);padding:120px 52px 80px;text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="container">
+    <!-- TÍTULO -->
+    <div class="fade" style="margin-bottom:52px">
+      <p style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:12px"><span style="width:40px;height:1px;background:rgba(201,168,76,.4);display:block"></span>Autoliderazgo y Maestría Interior<span style="width:40px;height:1px;background:rgba(201,168,76,.4);display:block"></span></p>
+      <p style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.4);margin-bottom:24px">Programa de Transformación · 90 Días</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,68px);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:24px">Rompe el Hechizo,<br>Maneja tu Mente y<br><em style="font-style:italic;color:var(--gold-light)">Transforma tu Realidad</em></h1>
+      <p style="font-size:16px;line-height:1.9;color:rgba(255,255,255,.58);font-weight:300;max-width:620px;margin:0 auto">Para empresarios, altos cargos y profesionales que alcanzaron el éxito exterior. Pero sienten que algo esencial sigue faltando. 90 días para restablecer la coherencia de tu tríada mente–emoción–cuerpo.</p>
     </div>
-    <div style="display:flex;justify-content:center">
-      <div class="hero-frame">
-        <img class="hero-photo" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
-        <div class="hero-tag">
-          <strong>Daniel Miccael Sais</strong>
-          <span>Coach · Terapeuta · Autoliderazgo</span>
-        </div>
+    <!-- VIDEO -->
+    <div class="vsl-wrap fade">
+      <div class="vsl-frame">
+        <iframe src="https://www.youtube.com/embed/hif-RSb0oVQ?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+    </div>
+    <!-- BOTÓN -->
+    <div class="fade" style="margin-top:44px">
+      <a href="https://calendly.com/danielmiccaelsais-sudjameditacion/new-meeting?utm_id=97760_v0_s00_e0_tv3&month=2026-06" target="_blank" class="btn-agenda-l">Agenda tu llamada con Daniel →</a>
     </div>
   </div>
 </section>
@@ -319,7 +325,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
       <p class="eyebrow-c" style="color:var(--gold)"><span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span>El Método<span style="flex:1;max-width:48px;height:1px;background:rgba(201,168,76,.4);display:block"></span></p>
       <h2 class="h2l" style="text-align:center">Autoliderazgo y <em>Maestría Interna 90D</em></h2>
       <p class="pl" style="text-align:center;max-width:600px;margin:0 auto">Un entrenamiento sistémico que trabaja tu tríada mente–emoción–acción a través de 4 ciclos progresivos. Porque es imposible dirigir un equipo o empresa sin ser capaz de dirigirte a ti mismo.</p>
-      <p style="text-align:center;margin-top:18px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)">Inicio del programa · Miércoles 17 de Junio</p>
+      <p style="text-align:center;margin-top:18px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)">Inicio del programa · Miércoles 1 de Julio, 2025</p>
     </div>
     <div class="cycles fade">
       <div class="cycle">
@@ -428,6 +434,11 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
         <p class="inc-text">Mensajes diarios (máx. 2 min) que impulsan al participante a tomar decisiones conscientes y mantener el centramiento biológico.</p>
       </div>
     </div>
+    <!-- CTA AGENDA #2 -->
+    <div class="fade" style="text-align:center;margin-top:52px">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px">¿Este programa es para ti? Conversemos.</p>
+      <a href="https://calendly.com/danielmiccaelsais-sudjameditacion/new-meeting?utm_id=97760_v0_s00_e0_tv3&month=2026-06" target="_blank" class="btn-agenda">Agenda una llamada gratuita →</a>
+    </div>
   </div>
 </section>
 
@@ -439,11 +450,11 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
         <div class="live-badge"><div class="dot"></div><span class="badge-text">En Vivo · 26 Sesiones</span></div>
         <p class="eyebrow-l">Calendario Premium</p>
         <h2 class="h2l">Miércoles y Sábados<br><em>junto a Daniel</em></h2>
-        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);padding:12px 20px;margin-bottom:20px;margin-top:-4px">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);padding:12px 20px;margin-bottom:20px;margin-top:4px">
           <span style="font-size:18px">📅</span>
           <div>
             <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:2px">Inicio del programa</div>
-            <div style="font-size:15px;color:#fff;font-family:'Playfair Display',serif">Miércoles 17 de Junio, 2025</div>
+            <div style="font-size:15px;color:#fff;font-family:'Playfair Display',serif">Miércoles 1 de Julio, 2025</div>
           </div>
         </div>
         <p class="pl">El programa incluye 26 encuentros en vivo diseñados bajo una lógica de alta dirección. No son clases teóricas: son espacios de ingeniería mental, mentoría directa y rendición de cuentas ante la Tribu.</p>
@@ -481,7 +492,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
       <div class="about-photo-wrap fade">
         <img class="about-photo" src="Gemini_Generated_Image_axjzohaxjzohaxjz.png" alt="Daniel Miccael Sais">
         <div style="position:absolute;top:-18px;right:-18px;width:68px;height:68px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,168,76,0.3)">
-          <img src="logo_png.png" alt="Logo" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:normal">
+          <img src="logo_png.png" alt="Logo" style="width:100%;height:100%;object-fit:cover">
         </div>
       </div>
       <div class="fade">
@@ -553,7 +564,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
       <h2 class="h2l">Resultados reales,<br><em>transformaciones genuinas</em></h2>
     </div>
     <div class="testimonios-carousel" id="testCarousel">
-
       <div class="test-card">
         <div class="test-video-wrap">
           <iframe src="https://drive.google.com/file/d/12ZtOclKgnn1vsiIAwTkWMpLg_vqdC-30/preview" allow="autoplay" allowfullscreen></iframe>
@@ -564,7 +574,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
           <p class="test-quote">"Transformé el miedo en mi mayor aliado"</p>
         </div>
       </div>
-
       <div class="test-card">
         <div class="test-video-wrap">
           <iframe src="https://drive.google.com/file/d/1wLzjszBcBWyUlCXk8lsCfA-9SPKfN6Yr/preview" allow="autoplay" allowfullscreen></iframe>
@@ -575,7 +584,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
           <p class="test-quote">"Aprendí a perseguir mis metas sin que el fracaso me detenga"</p>
         </div>
       </div>
-
       <div class="test-card">
         <div class="test-video-wrap">
           <iframe src="https://drive.google.com/file/d/1rRBdh-Y0quzrNIv9ObNiamjTxyBQywjB/preview" allow="autoplay" allowfullscreen></iframe>
@@ -586,7 +594,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
           <p class="test-quote">"La meditación me devolvió la paz que no sabía que había perdido"</p>
         </div>
       </div>
-
       <div class="test-card">
         <div class="test-video-wrap">
           <iframe src="https://drive.google.com/file/d/10slSaSk-BiilR0AZqAZmQ1DQ3uXxNKlI/preview" allow="autoplay" allowfullscreen></iframe>
@@ -597,7 +604,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
           <p class="test-quote">"Hoy comprendo mis emociones y las habito desde otro lugar"</p>
         </div>
       </div>
-
       <div class="test-card">
         <div class="test-video-wrap">
           <iframe src="https://drive.google.com/file/d/1cu9D2y5wiAKsmemn2XP0Tn0TrZVI7MH3/preview" allow="autoplay" allowfullscreen></iframe>
@@ -608,7 +614,6 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
           <p class="test-quote">"Descubrí mis miedos más profundos y recuperé el control de mi vida"</p>
         </div>
       </div>
-
     </div>
     <div class="carousel-nav">
       <button class="carousel-btn" onclick="document.getElementById('testCarousel').scrollBy({left:-320,behavior:'smooth'})">←</button>
@@ -620,9 +625,12 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 <!-- ═══ CIERRE (BLANCO) ═══ -->
 <section class="close-sec">
   <div class="close-inner fade">
-    <img src="logo_png.png" alt="Logo Daniel Miccael Sais" style="width:90px;height:90px;object-fit:contain;margin:0 auto 28px;display:block;mix-blend-mode:normal">
+    <img src="logo_png.png" alt="Logo Daniel Miccael Sais" style="width:90px;height:90px;object-fit:contain;margin:0 auto 28px;display:block">
     <h2 class="close-title">La crisis que vives hoy es una<br><em>invitación a tu siguiente nivel</em></h2>
     <p class="close-p">No necesitas seguir sufriendo para merecer la transformación. El trabajo interno correcto puede cambiar tu vida en 90 días. La pregunta no es si puedes. La pregunta es: ¿estás listo?</p>
+    <div style="margin-top:40px">
+      <a href="https://calendly.com/danielmiccaelsais-sudjameditacion/new-meeting?utm_id=97760_v0_s00_e0_tv3&month=2026-06" target="_blank" class="btn-agenda">Agenda tu llamada con Daniel →</a>
+    </div>
     <div class="close-line"></div>
   </div>
 </section>
@@ -641,7 +649,6 @@ const io = new IntersectionObserver(entries => {
 }, {threshold: 0.08});
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-// Nav scroll effect
 window.addEventListener('scroll', () => {
   document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
