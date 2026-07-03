@@ -184,7 +184,8 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 .footer-copy{font-size:10px;color:rgba(255,255,255,.18);letter-spacing:1px}
 
 /* ── FADE IN ── */
-.fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;animation:autoshow .7s ease forwards}
+@keyframes autoshow{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
 .fade.v{opacity:1;transform:translateY(0)}
 
 /* ── RESPONSIVE ── */
@@ -646,8 +647,3 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 <script>
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
-}, {threshold: 0.08});
-document.querySelectorAll('.fade').forEach(el => io.observe(el));
-
-window.addEventListener('scroll', () => {
-  docu
